@@ -12,3 +12,11 @@ class SpinelleItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+
+
+class HuanqiuItem(scrapy.Item):
+    no = scrapy.Field()
+    href = scrapy.Field()
+    name = scrapy.Field()
+    website = scrapy.Field()
+    timestamp = scrapy.Field()
