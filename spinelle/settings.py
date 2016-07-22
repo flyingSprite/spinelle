@@ -15,9 +15,10 @@ SPIDER_MODULES = ['spinelle.spiders']
 NEWSPIDER_MODULE = 'spinelle.spiders'
 
 LOG_LEVEL = 'INFO'
+LOG_ENCODING = 'utf-8'
 
 ITEM_PIPELINES = {
-   'spinelle.pipelines.HuanqiuPipeline': 300,
+   'spinelle.pipelines.HotNewsPipeline': 300,
 }
 
 

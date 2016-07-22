@@ -6,7 +6,10 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import time
+import sys
+import io
 from conf.config import MISSION_MESSAGE
+# sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='gb18030')
 
 
 class SpinellePipeline(object):
@@ -14,11 +17,10 @@ class SpinellePipeline(object):
         return item
 
 
-class HuanqiuPipeline(object):
+class HotNewsPipeline(object):
 
     def process_item(self, item, spider):
         item['no'] = MISSION_MESSAGE
-        item['website'] = 'huanqiu'
         item['timestamp'] = int(time.time())
         print item
         return item

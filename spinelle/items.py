@@ -14,9 +14,18 @@ class SpinelleItem(scrapy.Item):
     pass
 
 
-class HuanqiuItem(scrapy.Item):
+class HotNewsItem(scrapy.Item):
+
     no = scrapy.Field()
     href = scrapy.Field()
     name = scrapy.Field()
     website = scrapy.Field()
+    websiteUrl = scrapy.Field()
+    type = scrapy.Field()
     timestamp = scrapy.Field()
+
+    def __init__(self, website, website_url):
+        super(HotNewsItem, self).__init__()
+        self['type'] = 'hotnews'
+        self['website'] = website
+        self['websiteUrl'] = website_url
