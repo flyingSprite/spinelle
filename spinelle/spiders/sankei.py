@@ -18,8 +18,6 @@ class SankeiSpider(scrapy.Spider):
         sel = Selector(response=response)
         sites = sel.xpath('//section[@class="modToplist"]/ul')
         a_links = sites.xpath('.//a')
-        print len(a_links)
-
         for a_link in a_links:
             sankei_item = HotNewsItem(self.website, self.website_url)
             href = a_link.xpath('@href').extract()[0]

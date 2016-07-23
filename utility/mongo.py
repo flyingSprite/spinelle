@@ -9,7 +9,6 @@ class MongoService(object):
     def __init__(self):
         url = 'mongodb://' + config.USERNAME + ':' + config.PASSWORD + '@' + config.HOST + '/' + config.DATABASE
         # client = MongoClient("mongodb://stone01:stone_654321@www.duastone.com/solution", 27017)
-        print url
         client = MongoClient(url, config.PORT)
         self.db = client.solution
 

@@ -17,7 +17,6 @@ class HuanqiuSpider(scrapy.Spider):
         sel = Selector(response=response)
         sites = sel.xpath('//div[@class="firNews"]/ul/div/li')
         items = []
-        print len(sites)
         for site in sites:
             a_links = site.xpath('.//a')
             for a_link in a_links:

@@ -15,7 +15,9 @@ SPIDER_MODULES = ['spinelle.spiders']
 NEWSPIDER_MODULE = 'spinelle.spiders'
 
 LOG_LEVEL = 'INFO'
+LOG_FILE = 'crawl.log'
 LOG_ENCODING = 'utf-8'
+LOG_STDOUT = True
 
 ITEM_PIPELINES = {
    'spinelle.pipelines.HotNewsPipeline': 300,
