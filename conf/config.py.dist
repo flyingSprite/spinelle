@@ -1,0 +1,11 @@
+
+import time
+
+MISSION_MESSAGE = int(time.time())
+
+HOST = 'localhost'
+PORT = 27017
+DATABASE = 'test_db'
+USERNAME = 'test'
+PASSWORD = '123456'
+

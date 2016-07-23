@@ -17,11 +17,12 @@ class HuanqiuSpider(scrapy.Spider):
         sel = Selector(response=response)
         sites = sel.xpath('//div[@class="firNews"]/ul/div/li')
         items = []
+        print len(sites)
         for site in sites:
             a_links = site.xpath('.//a')
-            for a_lint in a_links:
+            for a_link in a_links:
                 huanqiu_item = HotNewsItem(self.website, self.website_url)
-                huanqiu_item['href'] = a_lint.xpath('@href').extract()[0]
-                huanqiu_item['name'] = a_lint.xpath('text()').extract()[0]
+                huanqiu_item['href'] = a_link.xpath('@href').extract()[0]
+                huanqiu_item['name'] = a_link.xpath('text()').extract()[0]
                 items.append(huanqiu_item)
         return items

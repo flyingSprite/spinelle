@@ -2,7 +2,7 @@
 import scrapy
 import logging
 from scrapy.selector import Selector
-# from spinelle.items import HotNewsItem
+from spinelle.items import HotNewsItem
 
 
 class CnnSpider(scrapy.Spider):
@@ -19,6 +19,12 @@ class CnnSpider(scrapy.Spider):
         # logging.info(sel.extract())
         top_news = sel.xpath('//h3[@data-analytics="_list-hierarchical-piped_article_"]')[0]
         top_news_link = top_news.xpath('a')[0]
-        print top_news_link.extract()
-        print top_news_link.xpath('@href')
-        print top_news_link.xpath('span/text()')
+
+        print top_news_link.xpath('@href').extract()
+        print top_news_link.xpath('span/text()').extract()
+
+        cnn_item = HotNewsItem(self.website, self.website_url)
+        cnn_item['href'] = '' + top_news_link.xpath('@href').extract()[0]
+        cnn_item['name'] = top_news_link.xpath('span/text()').extract()[0]
+
+        return cnn_item

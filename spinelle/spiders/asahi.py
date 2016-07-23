@@ -18,6 +18,7 @@ class AsahiSpider(scrapy.Spider):
         sites = sel.xpath('//div[contains(@class, "TopNewsArea")]')
         a_links = sites.xpath('.//a')
         items = []
+        # print len(a_links)
         for a_link in a_links:
             asahi_item = HotNewsItem(self.website, self.website_url)
             asahi_item['href'] = a_link.xpath('@href').extract()[0]
