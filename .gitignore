@@ -91,4 +91,5 @@ ENV/
 .idea/
 
 conf/config.py
+run.sh
 crawl.log
