@@ -1,7 +1,7 @@
 
 import time
 
-MISSION_MESSAGE = int(time.time())
+MISSION_MESSAGE = int(time.time() * 1000)
 
 HOST = 'localhost'
 PORT = 27017
