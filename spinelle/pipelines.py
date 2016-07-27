@@ -8,9 +8,9 @@
 from utility.mongo import MongoService
 
 
-class SpinellePipeline(object):
-    def process_item(self, item, spider):
-        return item
+# class SpinellePipeline(object):
+#     def process_item(self, item, spider):
+#         return item
 
 
 class HotNewsPipeline(object):
@@ -22,6 +22,8 @@ class HotNewsPipeline(object):
         self.collection = self.service.collection('hotnews')
 
     def process_item(self, item, spider):
+        # Overlook spider argument
+        _ = spider
         self.save(item)
         return item
 
