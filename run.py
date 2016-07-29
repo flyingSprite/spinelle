@@ -7,7 +7,7 @@ from spinelle.spiders.sankei import SankeiSpider
 from spinelle.spiders.huanqiu import HuanqiuSpider
 
 
-from conf.config import MISSION_MESSAGE
+from conf.settings import MISSION_MESSAGE
 from utility.mongo import MongoService
 
 

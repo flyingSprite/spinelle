@@ -6,7 +6,7 @@
 # http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from conf.config import MISSION_MESSAGE
+from conf.settings import MISSION_MESSAGE
 
 
 class SpinelleItem(scrapy.Item):
