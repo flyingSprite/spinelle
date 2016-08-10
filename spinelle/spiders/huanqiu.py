@@ -22,7 +22,7 @@ class HuanqiuSpider(scrapy.Spider):
             for a_link in a_links:
                 huanqiu_item = HotNewsItem(self.website, self.website_url)
                 news_name = a_link.xpath('text()').extract()[0]
-                if news_name != '图解' and news_name != '解读':
+                if news_name != u'图解' and news_name != u'解读':
                     huanqiu_item['href'] = a_link.xpath('@href').extract()[0]
                     huanqiu_item['name'] = news_name
                     items.append(huanqiu_item)

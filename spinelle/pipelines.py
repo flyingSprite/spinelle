@@ -32,4 +32,5 @@ class HotNewsPipeline(object):
             self.collection,
             item,
             {'href': item['href']},
-            'amendTimestamp')
+            'amendTimestamp'
+        )

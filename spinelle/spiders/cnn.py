@@ -20,8 +20,8 @@ class CnnSpider(scrapy.Spider):
         top_news = sel.xpath('//h3[@data-analytics="_list-hierarchical-piped_article_"]')[0]
         top_news_link = top_news.xpath('a')[0]
 
-        print top_news_link.xpath('@href').extract()
-        print top_news_link.xpath('span/text()').extract()
+        # print top_news_link.xpath('@href').extract()
+        # print top_news_link.xpath('span/text()').extract()
 
         cnn_item = HotNewsItem(self.website, self.website_url)
         cnn_item['href'] = '' + top_news_link.xpath('@href').extract()[0]
