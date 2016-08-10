@@ -6,6 +6,7 @@ from conf import config
 from utility.mongo import MongoService
 from utility import utility
 
+from pymongo.errors import BulkWriteError
 from aliyunsdkcore import client
 from aliyunsdkcms.request.v20160318 import QueryMetricDataRequest
 
@@ -67,7 +68,11 @@ class AcsResolve(object):
     def save(self, items):
         # print json.dumps(items, indent=4)
         # Save to MongoDB
-        self.collection.insert_many(items)
+        try:
+            self.collection.insert_many(items)
+        except BulkWriteError:
+            # If the primary key has existed, pass.
+            pass
 
 
 class AcsRequest(object):
