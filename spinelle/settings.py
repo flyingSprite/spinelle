@@ -14,7 +14,7 @@ BOT_NAME = 'spinelle'
 SPIDER_MODULES = ['spinelle.spiders']
 NEWSPIDER_MODULE = 'spinelle.spiders'
 
-LOG_LEVEL = 'INFO'
+LOG_LEVEL = 'DEBUG'
 LOG_FILE = 'crawl.log'
 LOG_ENCODING = 'utf-8'
 LOG_STDOUT = True
