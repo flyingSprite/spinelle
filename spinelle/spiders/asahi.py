@@ -1,19 +1,23 @@
 # -*- coding: utf-8 -*-
+"""Scrapy www.asahi/com site."""
 import scrapy
 from scrapy.selector import Selector
 from spinelle.items import HotNewsItem
 
 
 class AsahiSpider(scrapy.Spider):
+    """Class AsahiSpider start."""
+
     name = 'asahi'
     allowed_domains = ['asahi.com']
     start_urls = (
         'http://www.asahi.com/',
     )
-    website = '朝日新聞'
+    website = u'朝日新聞'
     website_url = 'http://www.asahi.com'
 
     def parse(self, response):
+        """Begin parse html."""
         sel = Selector(response=response)
         sites = sel.xpath('//div[contains(@class, "TopNewsArea")]')
         a_links = sites.xpath('.//a')

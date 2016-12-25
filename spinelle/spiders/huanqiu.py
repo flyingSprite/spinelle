@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
+"""Crawl www.huanqiu.com site."""
 import scrapy
 from scrapy.selector import Selector
 from spinelle.items import HotNewsItem
 
 
 class HuanqiuSpider(scrapy.Spider):
+    """Class HuanqiuSpider Start."""
+
     name = 'huanqiu'
     allowed_domains = ['huanqiu.com']
     start_urls = (
@@ -14,7 +17,10 @@ class HuanqiuSpider(scrapy.Spider):
     website_url = 'http://www.huanqiu.com'
 
     def parse(self, response):
+        """Parse Html Content."""
+        print 'Huanqiu'
         sel = Selector(response=response)
+        print sel.extract()
         sites = sel.xpath('//div[@class="firNews"]/ul/div/li')
         items = []
         for site in sites:

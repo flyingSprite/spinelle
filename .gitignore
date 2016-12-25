@@ -94,4 +94,4 @@ conf/config.py
 run.sh
 crawl.log
 
-tools/phantomjs
+static/node_modules

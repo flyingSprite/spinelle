@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
+"""Crawl www.sankei.com site."""
 import scrapy
 from scrapy.selector import Selector
 from spinelle.items import HotNewsItem
 
 
 class SankeiSpider(scrapy.Spider):
+    """Class SankeiSpider start."""
+
     name = "sankei"
     allowed_domains = ["sankei.com"]
     start_urls = (
@@ -14,6 +17,7 @@ class SankeiSpider(scrapy.Spider):
     website_url = 'http://www.sankei.com'
 
     def parse(self, response):
+        """Parse Html Content."""
         items = []
         sel = Selector(response=response)
         sites = sel.xpath('//section[@class="modToplist"]/ul')

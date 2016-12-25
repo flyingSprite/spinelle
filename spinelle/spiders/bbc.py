@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+"""Crawl www.bbc.com site."""
 import scrapy
 import logging
 from scrapy.selector import Selector
@@ -6,6 +6,8 @@ from spinelle.items import HotNewsItem
 
 
 class BbcSpider(scrapy.Spider):
+    """Class BbcSpider."""
+
     name = "bbc"
     allowed_domains = ["bbc.com"]
     start_urls = (
@@ -15,6 +17,7 @@ class BbcSpider(scrapy.Spider):
     website_url = 'http://www.bbc.com/'
 
     def parse(self, response):
+        """Parse html content."""
         items = []
         sel = Selector(response=response)
         sites = sel.xpath('//div[@id="comp-top-stories-2"]')
