@@ -13,9 +13,23 @@ Create Scrapy project:
 scrapy startproject tutorial
 ```
 
-## Crawl Hot News ##
+Python Folder Structure
 
-* 环球时报
-* 朝日新聞
-* BBC
-* CNN
+```text
+spinelle
+|
++--- docs/             - Document for the project.
++--- spinelle/         - Using scrapy to crawl website.
++--- common/           - Some common code and utility.
++--- core/             - Core code for other modules
++--- static/           - Some public modules, such as node_modules.
++--- test/             - Unit testing codes.
++--- setup.py          - Start.
++--- settings.py       - Settings for the project
++--- scrapy.cfg        - Scrapy useful file.
++--- LICENSE           - LICENSE
++--- README.md         - Project readme
++--- requirements.txt  - Python require packages.
++--- .gitignore        - Git ignore file.
+
+```

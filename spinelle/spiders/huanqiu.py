@@ -17,7 +17,10 @@ class HuanqiuSpider(scrapy.Spider):
     website_url = 'http://www.huanqiu.com'
 
     def parse(self, response):
-        """Parse Html Content."""
+        """ Parse Html Content
+        Keyword arguments:
+        response -- HTTP Response
+        """
         print 'Huanqiu'
         sel = Selector(response=response)
         print sel.extract()
