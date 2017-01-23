@@ -1,4 +1,4 @@
 
-from service.aliyun_cms import run
+from core.aliyun.aliyun_cms import run
 
 run()

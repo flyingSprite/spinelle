@@ -1,15 +1,13 @@
-
 import sys
 
 from scrapy.conf import settings
-from scrapy.crawler import Crawler, CrawlerProcess
-from spinelle.spiders.asahi import AsahiSpider
-from spinelle.spiders.sankei import SankeiSpider
-from spinelle.spiders.huanqiu import HuanqiuSpider
-
-from service.aliyun_cms import run
+from scrapy.crawler import CrawlerProcess
 
 from conf.settings import MISSION_MESSAGE
+from core.aliyun.aliyun_cms import run
+from spinelle.spiders.asahi import AsahiSpider
+from spinelle.spiders.huanqiu import HuanqiuSpider
+from spinelle.spiders.sankei import SankeiSpider
 from utility.mongo import MongoService
 
 

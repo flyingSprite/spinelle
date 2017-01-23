@@ -4,9 +4,9 @@ from pymongo import MongoClient, ReadPreference
 from conf import config
 
 
-'''
+"""
 Doc: http://api.mongodb.com/python/current/
-'''
+"""
 
 
 class MongoService(object):

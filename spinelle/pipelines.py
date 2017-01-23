@@ -6,7 +6,7 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-from utility.mongo import MongoService
+# from utility.mongo import MongoService
 
 
 # class SpinellePipeline(object):
@@ -34,9 +34,9 @@ class HotNewsPipeline(object):
 
     def save(self, item):
         """Save hotnews to db."""
-        self.service.upsert(
-            self.collection,
-            item,
-            {'href': item['href']},
-            'amendTimestamp'
-        )
+        # self.service.upsert(
+        #     self.collection,
+        #     item,
+        #     {'href': item['href']},
+        #     'amendTimestamp'
+        # )

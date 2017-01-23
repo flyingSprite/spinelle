@@ -3,8 +3,8 @@ import json
 import time
 
 from conf import config
-from utility.mongo import MongoService
-from utility import utility
+from common.mongo.mongo import MongoService
+from common.utility import utility
 
 from pymongo.errors import BulkWriteError
 from aliyunsdkcore import client
