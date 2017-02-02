@@ -8,7 +8,7 @@ from core.aliyun.aliyun_cms import run
 from spinelle.spiders.asahi import AsahiSpider
 from spinelle.spiders.huanqiu import HuanqiuSpider
 from spinelle.spiders.sankei import SankeiSpider
-from utility.mongo import MongoService
+from common.mongo.mongo import MongoService
 
 
 class CrawlService(object):
