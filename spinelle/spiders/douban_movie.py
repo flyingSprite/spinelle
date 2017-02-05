@@ -20,7 +20,6 @@ class DoubanMovieSpider(scrapy.Spider):
                 self.start_urls.append(douban_movie.get('url', ''))
 
     def parse(self, response):
-        print response.url
         sel = Selector(response=response)
         subject_interest = sel.xpath('//div[@class="subject-others-interests-ft"]')
         has_saw_people_url = response.url + 'collections/'

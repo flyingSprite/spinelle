@@ -64,3 +64,14 @@ class DoubanMovieTask(BasicTask):
         while can_crawl_data:
             can_crawl_data = self.crawl(self.page_limit, self.page_limit * index)
             index += 1
+
+
+class DoubanUser(object):
+
+    def __init__(self):
+        self.name = 'douban_user'
+        self.mongoService = MongoService()
+        self.collection = self.mongoService.collection(self.name)
+
+    def insert_douban_user(self, user):
+        self.collection.insert_one(user)
