@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """Scrapy Pipeline."""
 
 # Define your item pipelines here

@@ -1,11 +1,10 @@
 {
-  "name": "static",
+  "name": "spinelle",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT"
+  "repository": {},
+  "license": "MIT",
+  "dependencies": {
+    "phantomjs-prebuilt": "^2.1.14"
+  }
 }
