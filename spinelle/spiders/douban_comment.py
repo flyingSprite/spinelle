@@ -65,7 +65,7 @@ class DoubanCommentSpider(Spider):
             if len(comment_content) == 2:
                 p_values = comment_content.xpath('text()').extract()
                 user_info['comment_content'] = p_values[len(p_values) - 1]
-            self.douban_user.insert_douban_user(user_info)
+            # self.douban_user.insert_douban_user(user_info)
 
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):

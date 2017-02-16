@@ -1,16 +1,15 @@
 
-import random
+from faker import Faker
 
 
 class RandomUserAgent(object):
 
-    def __init__(self, agents):
-        print agents
-        self.agents = agents
+    def __init__(self):
+        self.faker = Faker()
 
     @classmethod
     def from_crawler(cls, crawler):
-        return cls(crawler.settings.getlist('USER_AGENTS'))
+        return cls()
 
     def process_request(self, request, spider):
-        request.headers.setdefault('User-Agent', random.choice(self.agents))
+        request.headers.setdefault('User-Agent', self.faker.user_agent())
