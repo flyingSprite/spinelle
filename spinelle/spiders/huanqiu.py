@@ -19,11 +19,9 @@ class HuanqiuSpider(scrapy.Spider):
     def parse(self, response):
         """ Parse Html Content
         Keyword arguments:
-        response -- HTTP Response
+        :param response -- HTTP Response
         """
-        print 'Huanqiu'
         sel = Selector(response=response)
-        print sel.extract()
         sites = sel.xpath('//div[@class="firNews"]/ul/div/li')
         items = []
         for site in sites:

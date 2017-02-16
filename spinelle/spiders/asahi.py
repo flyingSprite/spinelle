@@ -17,7 +17,11 @@ class AsahiSpider(scrapy.Spider):
     website_url = 'http://www.asahi.com'
 
     def parse(self, response):
-        """Begin parse html."""
+        """Begin parse html.
+
+        :param response: HTTP resposne
+        :return: parse items
+        """
         sel = Selector(response=response)
         sites = sel.xpath('//div[contains(@class, "TopNewsArea")]')
         a_links = sites.xpath('.//a')

@@ -14,9 +14,11 @@ class DoubanCommentSpider(Spider):
     name = "douban_comment"
     allowed_domains = ["douban.com"]
     # start_urls = ['https://movie.douban.com/subject/26685451/collections']
-    start_urls =['https://movie.douban.com/subject/26685451/collections/?start=100',
-                 'https://movie.douban.com/subject/26685451/collections/?start=120']
-    # start_urls = list()
+    # start_urls = [
+    #     'https://movie.douban.com/subject/26685451/collections/?start=100',
+    #     'https://movie.douban.com/subject/26685451/collections/?start=120'
+    # ]
+    start_urls = list()
 
     def __init__(self):
         super(DoubanCommentSpider, self).__init__()

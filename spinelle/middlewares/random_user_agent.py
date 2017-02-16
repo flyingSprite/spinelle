@@ -9,6 +9,12 @@ class RandomUserAgent(object):
 
     @classmethod
     def from_crawler(cls, crawler):
+        """scrpay from_crawler
+
+        :param crawler:
+        :return: RandomUserAgent class instance
+        """
+        _ = crawler
         return cls()
 
     def process_request(self, request, spider):
