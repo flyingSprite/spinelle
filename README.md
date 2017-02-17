@@ -28,6 +28,13 @@ spinelle
 +--- .gitignore        - Git ignore file.
 ```
 
+## Requirements
+
+* `aliyun-python-sdk-cms` & `aliyun-python-sdk-core`: Using aliyun sdk.
+* `faker`:
+*
+*
+
 ## Module
 
 ### Crawl data by `scrapy`
