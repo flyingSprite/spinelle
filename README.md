@@ -11,6 +11,7 @@ Python Version: 2.7.13
 spinelle
 |
 +--- docs/             - Document for the project.
++--- learning/         - Learn python codes.
 +--- spinelle/         - Using scrapy to crawl website.
 +--- common/           - Some common code and utility. Using by core and spinelle.
 +--- core/             - Core code for other modules.
@@ -30,10 +31,6 @@ spinelle
 
 ## Requirements
 
-* `aliyun-python-sdk-cms` & `aliyun-python-sdk-core`: Using aliyun sdk.
-* `faker`:
-*
-*
 
 ## Module
 
