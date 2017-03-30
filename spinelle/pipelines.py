@@ -54,7 +54,7 @@ class SavingPipeline(object):
 class TestPipeline(ImagesPipeline):
 
     def get_media_requests(self, item, info):
-        print item, info.spider.name
+        print(item, info.spider.name)
 
     def item_completed(self, results, item, info):
         pass
@@ -104,7 +104,6 @@ class ImageDownloaderPipeline(ImagesPipeline):
         name = request.meta['name']
         image_guid = hashlib.sha1(url).hexdigest()  # change to request.url after deprecation
         path = name + '/%s.jpg' % image_guid
-        print path
         return path
 
 
