@@ -3,6 +3,9 @@ import json
 import time
 import requests
 
+from common.mongo.mongo import MongoService
+from common.utility.image_downloader import get_image
+
 
 class HuabanDrawcrowdTask(object):
     cookies = dict(
@@ -17,6 +20,8 @@ class HuabanDrawcrowdTask(object):
     def __init__(self):
         self.name = 'huaban_drawcrowd'
         self.counter = 0
+        self.mongoService = MongoService()
+        self.collection = self.mongoService.collection(self.name)
 
     def request_json_list(self, start_pin_id):
         self.counter += 1
@@ -52,20 +57,26 @@ class HuabanDrawcrowdTask(object):
                     if 'urlname' in item['user'] else ''
             parse_item['raw_text'] = item['raw_text'] if 'raw_text' in item else ''
             parse_item['load_time'] = round(time.time() * 1000)
-            print(parse_item)
             return parse_item
         return None
 
-    @staticmethod
-    def save_item(parse_item):
+    def save_item(self, parse_item):
         if parse_item and 'img_hash' in parse_item:
-            pass
+            self.collection.insert_one(parse_item)
 
     def start(self, pin_id=1079920040):
         pin_id = pin_id if pin_id else 1079920040
         self.request_json_list(pin_id)
 
+    def find(self, limit=10):
+        query_results = self.collection.find().limit(limit)
+        for item in query_results:
+            self.counter += 1
+            if 'img_hash' in item:
+                print(item['img_hash'])
+                get_image(item['img_hash'])
+            print(self.counter)
 
 huaban = HuabanDrawcrowdTask()
-huaban.start()
-
+# huaban.start()
+huaban.find(1000)
