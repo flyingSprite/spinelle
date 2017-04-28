@@ -11,6 +11,11 @@ class TimeUtils(object):
     # return preve one hour timestamp and current hour timestamp
     @classmethod
     def prev_an_hour(cls):
+        """
+        Get an hour before the timestamp and current timestamp.
+        :return: an hour before the timestamp and current timestamp.
+        """
+
         # Get string format time without seconds and minutes
         current_hour_time_str = time.strftime('%Y-%m-%d %H:00:00')
         # Turn string format time to time_tuple
@@ -38,4 +43,3 @@ class FileUtils(object):
         :return: None
         """
         urllib.request.urlretrieve(download_url, save_path_name)
-
