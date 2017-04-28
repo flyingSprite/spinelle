@@ -4,7 +4,7 @@ import time
 
 from conf import config
 from common.mongo.mongo import MongoService
-from common.utility import utility
+from common.utility.utils import TimeUtils
 
 from pymongo.errors import BulkWriteError
 from aliyunsdkcore import client
@@ -18,7 +18,7 @@ Reference: https://help.aliyun.com/document_detail/28616.html?spm=5176.doc28615.
 
 def run():
     request = AcsRequest()
-    start_timestamp, end_timestamp = utility.prev_an_hour()
+    start_timestamp, end_timestamp = TimeUtils.prev_an_hour()
 
     # Start timestamp revise, prevent lose some monitoring data.
     start_timestamp -= 5 * 60 * 1000
