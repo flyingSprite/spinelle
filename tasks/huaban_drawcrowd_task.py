@@ -8,10 +8,16 @@ from common.utility.image_downloader import get_image
 
 
 class HuabanDrawcrowdTask(object):
+    """
+    Create Huaban DrawCrowd task, see url http://huaban.com/from/drawcrowd.com
+    """
+
+    # Must add sid in cookie.
     cookies = dict(
         sid='B3aOonIXtRYDEPoV5uVfqfkyXbA.G7oIUoxfpshMgB4OVvCxEIKKVH5Nk3cImmPvxBaxqOA'
     )
 
+    # Must add X-Request and X-Requested-with in headers. If not, will return html data not json data
     headers = {
         'X-Request': 'JSON',
         'X-Requested-With': 'XMLHttpRequest',
@@ -19,15 +25,16 @@ class HuabanDrawcrowdTask(object):
 
     def __init__(self):
         self.name = 'huaban_drawcrowd'
-        self.counter = 0
+        self.home_url = 'http://huaban.com/from/drawcrowd.com'
         self.mongoService = MongoService()
         self.collection = self.mongoService.collection(self.name)
+        self.counter = 0
 
     def request_json_list(self, start_pin_id):
         self.counter += 1
         print(f'request counter: {self.counter}')
         time.sleep(0.3)
-        request_url = f'http://huaban.com/from/drawcrowd.com?max={str(start_pin_id)}&limit=20&wfl=1'
+        request_url = f'{self.home_url}?max={str(start_pin_id)}&limit=20&wfl=1'
         response = requests.get(request_url, headers=self.headers, cookies=self.cookies)
         result = response.text
         self.analysis_json(json.loads(result))
@@ -79,10 +86,12 @@ class HuabanDrawcrowdTask(object):
         for item in query_results:
             self.counter += 1
             if 'img_hash' in item:
-                print(item['img_hash'])
+                # print(item['img_hash'])
                 get_image(item['img_hash'])
-            print(self.counter)
+            # print(self.counter)
 
 huaban = HuabanDrawcrowdTask()
 huaban.start()
 # huaban.find(1000)
+# huaban.start()
+huaban.find(50)
