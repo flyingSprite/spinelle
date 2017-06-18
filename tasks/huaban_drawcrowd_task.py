@@ -37,6 +37,7 @@ class HuabanDrawcrowdTask(object):
 
         for item in response_list:
             self.save_item(self.parse_item(item))
+            # print(item)
 
         if len(response_list) > 0:
             last_item = response_list[len(response_list) - 1]
@@ -48,8 +49,13 @@ class HuabanDrawcrowdTask(object):
     def parse_item(item):
         if item:
             parse_item = dict()
-            if 'file' in item and 'key' in item['file']:
-                parse_item['img_hash'] = item['file']['key']
+            if 'file' in item:
+                item_file = item['file']
+                if 'key' in item_file:
+                    parse_item['img_hash'] = item_file['key']
+                if 'width' in item_file and 'height' in item_file:
+                    parse_item['width'] = item_file['width']
+                    parse_item['height'] = item_file['height']
             if 'user' in item:
                 parse_item['username'] = item['user']['username'] \
                     if 'username' in item['user'] else ''
@@ -78,5 +84,5 @@ class HuabanDrawcrowdTask(object):
             print(self.counter)
 
 huaban = HuabanDrawcrowdTask()
-# huaban.start()
-huaban.find(1000)
+huaban.start()
+# huaban.find(1000)
