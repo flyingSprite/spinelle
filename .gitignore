@@ -11,11 +11,9 @@ __pycache__/
 env/
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -92,6 +90,5 @@ ENV/
 
 conf/config.py
 run.sh
-crawl.log
 
 static/node_modules

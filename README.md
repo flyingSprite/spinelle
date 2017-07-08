@@ -1,33 +1,9 @@
-# Project spinelle
+# Building Data Source -  Spinelle
 
 ## Version
 
-Version: 0.0.1
-Python Version: 2.7.13
-
-##  Python Folder Structure
-
-```text
-spinelle
-|
-+--- docs/             - Document for the project.
-+--- learning/         - Learn python codes.
-+--- spinelle/         - Using scrapy to crawl website.
-+--- common/           - Some common code and utility. Using by core and spinelle.
-+--- core/             - Core code for other modules.
-     +--- generate/     - Auto generate data.
-     +--- aliyun/       - Request from aliyun cms.
-     +--- model/        - All kinds of entry.
-+--- static/           - Some public modules, such as node_modules.
-+--- test/             - Unit testing codes.
-+--- setup.py          - Start.
-+--- settings.py       - Settings for the project.
-+--- scrapy.cfg        - Scrapy useful file.
-+--- LICENSE           - LICENSE.
-+--- README.md         - Project readme.
-+--- requirements.txt  - Python require packages.
-+--- .gitignore        - Git ignore file.
-```
+* Version: 0.0.2
+* Python Version: 3.6.1
 
 ## Requirements
 
@@ -43,3 +19,14 @@ spinelle
 ### Auto generate data
 
 ## Release Node
+
+## Note
+
+Spinelle is not noly builing data source project. There are some special feature in it.
+
+Such as:
+* Learn python
+* Learn leetcode questions
+* Learn scrapy to crawl data
+
+If it is large enough, maybe I can split it to serval projects.
