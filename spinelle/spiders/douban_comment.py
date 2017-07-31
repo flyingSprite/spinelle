@@ -78,8 +78,8 @@ class DoubanCommentSpider(Spider):
 
     @staticmethod
     def spider_opened():
-        print 'Opened this spider.'
+        print('Opened this spider.')
 
     @staticmethod
     def spider_closed():
-        print 'Closed this spider.'
+        print('Closed this spider.')

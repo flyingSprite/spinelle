@@ -30,4 +30,3 @@ class ZhihuSpider(scrapy.Spider):
     def parse(self, response):
         problem = Selector(response=response)
         # name = problem.xpath('//span[@class="name"]/text()').extract()
-        print '========>>>>>>>', problem.extract()

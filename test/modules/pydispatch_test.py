@@ -12,7 +12,7 @@ def func():
 
     :return: None
     """
-    print 'Hello World!'
+    print('Hello World!')
 
 dispatcher.connect(func, signal='start', sender=dispatcher.Anonymous)
 dispatcher.send(signal='start')
@@ -24,7 +24,7 @@ def func2(test):
     :param test: Paramater test.
     :return: None
     """
-    print 'Hello World!', test
+    print('Hello World!', test)
 
 dispatcher.connect(func2, signal='second', sender=dispatcher.Anonymous)
 dispatcher.send(signal='second', test='My test!')

@@ -35,7 +35,7 @@ class DoubanMovieSpider(scrapy.Spider):
             has_saw_people = int(has_saw_people_r[0]) if len(has_saw_people_r) > 0 else 0
             want_to_see_people = int(want_to_see_people_r[0]) \
                 if len(want_to_see_people_r) > 0 else 0
-            print has_saw_people, want_to_see_people
+            print(has_saw_people, want_to_see_people)
         except IndexError:
             pass
 

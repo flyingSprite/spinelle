@@ -15,13 +15,13 @@ BOT_NAME = 'spinelle'
 SPIDER_MODULES = ['spinelle.spiders']
 NEWSPIDER_MODULE = 'spinelle.spiders'
 
-LOG_LEVEL = 'DEBUG'
+LOG_LEVEL = 'INFO'
 # LOG_FILE = 'crawl.log'
 LOG_ENCODING = 'utf-8'
 LOG_STDOUT = True
 
 ITEM_PIPELINES = {
-    'spinelle.pipelines.TestPipeline': 300,
+    'spinelle.pipelines.SavingPipeline': 300,
 }
 
 # Must be set IMAGES_STORE. If not, will do not run ImagesPipe.

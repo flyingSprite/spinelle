@@ -28,7 +28,7 @@ class CnpluginsSpider(scrapy.Spider):
 
     def parse(self, response):
         """Parse Start."""
-        print 'Start Crawl cnplugins content.'
+        print('Start Crawl cnplugins content.')
         item = self.parse_content(response)
         return item
 
@@ -46,7 +46,8 @@ class CnpluginsSpider(scrapy.Spider):
                     dont_filter=False
                 )
 
-    def parse_article_content(self, article_content):
+    @staticmethod
+    def parse_article_content(article_content):
         """Parse one CnPlugins plugin content."""
         item = CnPluginsItem()
         content_thumb = article_content.xpath('.//div[@class="thumb"]')
@@ -94,9 +95,10 @@ class CnpluginsSpider(scrapy.Spider):
 
             if next_link is not None:
                 next_link_full = self.devtool_home_link + next_link
-                self.request_next(url=next_link_full)
+                self.request_next(request_url=next_link_full)
 
-    def inter_plugin_detail_page(self, response):
+    @staticmethod
+    def inter_plugin_detail_page(response):
         """Inter into plugin detail page."""
         item = response.meta['item']
         sel = Selector(response)
@@ -106,3 +108,7 @@ class CnpluginsSpider(scrapy.Spider):
             download_href = download_content.xpath('@href').extract()[0]
             item['download_href'] = download_href
         return item
+
+    @staticmethod
+    def request_next(request_url):
+        pass
