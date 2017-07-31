@@ -16,7 +16,7 @@ curl -k https://192.168.105.88/axapi/v3/auth -H "Content-type:application/json" 
 
 
 class LoginSystemByHttps(object):
-    login_url = 'http://192.168.105.88/axapi/v3/auth'
+    login_url = 'https://192.168.105.88/axapi/v3/auth'
 
     def login(self):
         """
