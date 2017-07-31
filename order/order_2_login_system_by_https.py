@@ -3,6 +3,7 @@ import requests
 
 """ Order 2: Login system by https
 
+This is the code which use curl to login system
 ```
 curl -k https://192.168.105.88/axapi/v3/auth -H "Content-type:application/json" -d '{
     "credentials": {
