@@ -26,7 +26,7 @@ class GenerateFolder(object):
         return folder_path
 
     @staticmethod
-    def generate_by_day(root_dir, timestamp):
+    def generate_by_date(root_dir, timestamp):
         lt = time.localtime(timestamp)
         folder_path = os.path.join(root_dir, str(lt.tm_year), str(lt.tm_mon), str(lt.tm_mday))
         GenerateFolder.generate_folder(folder_path)
@@ -38,5 +38,5 @@ class GenerateFolder(object):
             os.makedirs(folder_path)
 
 
-# gen_folder_path = GenerateFolder.generate_by_day('D:\\test', 1501221809)
+# gen_folder_path = GenerateFolder.generate_by_date('D:\\test', 1501221809)
 # print(gen_folder_path)
