@@ -30,5 +30,6 @@ class LoginSystemByHttps(object):
         return response.text
 
 
+# Order 2 testing:
 # login = LoginSystemByHttps()
 # login.login()

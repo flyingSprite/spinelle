@@ -38,5 +38,6 @@ class GenerateFolder(object):
             os.makedirs(folder_path)
 
 
+# Order 1 testing:
 # gen_folder_path = GenerateFolder.generate_by_date('D:\\test', 1501221809)
 # print(gen_folder_path)
