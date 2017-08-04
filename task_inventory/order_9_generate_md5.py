@@ -17,4 +17,5 @@ class GenerateMD5(object):
 
 
 # md5_text = GenerateMD5.md5(u'123456')
-# print(md5_text) # e10adc3949ba59abbe56e057f20f883e
+# # e10adc3949ba59abbe56e057f20f883e
+# print(md5_text)
