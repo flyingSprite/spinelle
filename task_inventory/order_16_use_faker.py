@@ -1,11 +1,10 @@
 
-"""
+""" Order 16: Use faker in python.
 Generate lots of kinds data with Faker
 * User information
 """
 
 from faker import Faker, Factory
-import logging
 
 
 class FakerGenerator(object):
@@ -80,9 +79,11 @@ class User(object):
         """Get this object instance string values."""
         return 'User = [%s]' % ', '.join(['%s: %s' % item for item in self.__dict__.items()])
 
-gen = FakerGenerator(language='zh_CN')
-print gen.gen_user_info().__str__()
-logging.info(gen.gen_user_info().__str__())
 
-full = gen.get_full_values()
-print full.__str__()
+# import logging
+# gen = FakerGenerator(language='zh_CN')
+# print(gen.gen_user_info().__str__())
+# logging.info(gen.gen_user_info().__str__())
+#
+# full = gen.get_full_values()
+# print(full.__str__())
