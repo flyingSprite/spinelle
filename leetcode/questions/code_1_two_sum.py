@@ -9,13 +9,15 @@ Example:
 
     Because nums[0] + nums[1] = 2 + 7 = 9,
     return [0, 1].
+    
+Date: 2017-08-10 10:55:00
 """
 
 
-class Solution(object):
+class TwoSumSolution(object):
 
     @staticmethod
-    def two_sum(nums, target):
+    def solution(nums, target):
         """
         :type nums: List[int]
         :type target: int
@@ -27,3 +29,11 @@ class Solution(object):
                 if i != j and nums[i] + nums[j] == target:
                     return [i, j]
         return [0, 0]
+
+    @staticmethod
+    def test():
+        result = TwoSumSolution.solution([2, 7, 11, 15], 18)
+        print(result)
+
+
+TwoSumSolution.test()
