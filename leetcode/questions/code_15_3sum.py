@@ -29,9 +29,9 @@ class ThreeSum(object):
                     right -= 1
                 left += 1
                 right -= 1
-            elif arr[left] + arr[right] + target >= 0:
+            elif arr[left] + arr[right] + target > 0:
                 right -= 1
-            elif arr[left] + arr[right] + target <= 0:
+            elif arr[left] + arr[right] + target < 0:
                 left += 1
         return target_arr
 
