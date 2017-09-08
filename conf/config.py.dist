@@ -21,3 +21,12 @@ Aliyun access key and secret.
 
 ALIYUN_ACCESS_KEY_ID = 'access_key_id'
 ALIYUN_ACCESS_KEY_SECRET = 'access_key_secret'
+
+
+'''
+Email Server config
+'''
+
+EMAIL_SMTP_SERVICE = 'smtp.126.com'
+EMAIL_USERNAME = 'email_username'
+EMAIL_AUTHORIZATION_CODE = 'authorization_code'
