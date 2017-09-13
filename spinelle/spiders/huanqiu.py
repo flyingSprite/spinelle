@@ -22,15 +22,15 @@ class HuanqiuSpider(scrapy.Spider):
         :param response -- HTTP Response
         """
         sel = Selector(response=response)
-        sites = sel.xpath('//div[@class="firNews"]/ul/div/li')
+        hotnews_content = sel.xpath('//div[@class="firNews"]/ul')
+        sites = hotnews_content.xpath('.//a')
         items = []
-        for site in sites:
-            a_links = site.xpath('.//a')
-            for a_link in a_links:
-                huanqiu_item = HotNewsItem(self.website, self.website_url)
-                news_name = a_link.xpath('text()').extract()[0]
-                if news_name != u'图解' and news_name != u'解读':
-                    huanqiu_item['href'] = a_link.xpath('@href').extract()[0]
-                    huanqiu_item['name'] = news_name
-                    items.append(huanqiu_item)
+        for a_link in sites:
+            huanqiu_item = HotNewsItem(self.website, self.website_url)
+            news_name = a_link.xpath('text()').extract()[0]
+            if news_name != u'图解' and news_name != u'解读':
+                huanqiu_item['href'] = a_link.xpath('@href').extract()[0]
+                huanqiu_item['name'] = news_name
+                items.append(huanqiu_item)
+                print(huanqiu_item)
         return items
