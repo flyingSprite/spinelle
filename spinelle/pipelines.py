@@ -54,8 +54,6 @@ class SavingPipeline(object):
 
     @special_pipeline_wrapper(wrapper_arg=['ltaaa'])
     def process_item(self, item, spider):
-        print('ssxxxxxxxx1')
-        print(spider)
         """Process hotnews item."""
         # Overlook spider argument
         # _ = spider
