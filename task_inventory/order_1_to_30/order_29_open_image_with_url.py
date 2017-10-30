@@ -25,4 +25,4 @@ class OpenImageWithUrl(object):
         OpenImageWithUrl.open(image_url)
 
 
-# OpenImageWithUrl.test()
+OpenImageWithUrl.test()

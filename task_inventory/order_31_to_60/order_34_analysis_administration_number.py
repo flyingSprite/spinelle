@@ -1,6 +1,8 @@
 import json
 
 """Order 34: generate administration code json file by text file.
+解析中国行政编号
+Text文档来源：http://www.stats.gov.cn/tjsj/tjbz/xzqhdm/201703/t20170310_1471429.html
 查看所有的文字编码：http://graphemica.com/
 """
 
