@@ -16,7 +16,8 @@ class SimpleReadAndWriteExcel(object):
     def read_excel_data(file_name):
         workbook = xlrd.open_workbook(file_name)
         print(workbook.sheet_names())
-        use_sheet = workbook.sheet_by_index(0) # sheet索引从0开始
+        # sheet索引从0开始
+        # use_sheet = workbook.sheet_by_index(0)
         use_sheet = workbook.sheet_by_name(workbook.sheet_names()[0])
 
         # 获取整行和整列的值（数组）
