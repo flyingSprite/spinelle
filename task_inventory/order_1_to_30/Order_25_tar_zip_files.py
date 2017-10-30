@@ -62,4 +62,10 @@ class ZipUnzipFiles(object):
         )
 
 
+class TarUntarFiles(object):
+
+    @staticmethod
+    def tar(filename, dst_filename, mode='w'):
+        pass
+
 # ZipUnzipFiles.test()
