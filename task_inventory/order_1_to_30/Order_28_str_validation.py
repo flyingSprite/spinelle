@@ -1,9 +1,12 @@
 
 import re
+import socket
 
 """Order 28: Serval string validation.
 
 Reference to http://regexr.com/
+
+For code f'', this is 3.6.1 grammar
 """
 
 
@@ -43,6 +46,26 @@ class StrValidation(object):
         return False
 
     @staticmethod
+    def validate_ipv4_with_socket(ipv4_str):
+        """
+        socket.inet_pton can be used in python 3.x or python 2.7.x not in windows
+        :param ipv4_str:
+        :return:
+        """
+        try:
+            socket.inet_pton(socket.AF_INET, ipv4_str)
+        except AttributeError:  # no inet_pton here, sorry
+            try:
+                socket.inet_aton(ipv4_str)
+            except socket.error:
+                return False
+            return ipv4_str.count('.') == 3
+        except socket.error:  # not a valid address
+            return False
+
+        return True
+
+    @staticmethod
     def validate_ipv4_port(ipv4_str):
         if ipv4_str:
             reg = '^(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}' \
@@ -65,6 +88,14 @@ class StrValidation(object):
         return False
 
     @staticmethod
+    def validate_ipv6_with_socket(ipv6_str):
+        try:
+            socket.inet_pton(socket.AF_INET6, ipv6_str)
+            return True
+        except AttributeError:  # no inet_pton here, sorry
+            return False
+
+    @staticmethod
     def validate_ipv6_netmask(ipv6_str):
         if ipv6_str:
             ipv6_netmask_reg = f'^{StrValidation.ipv6_reg}' \
@@ -83,6 +114,7 @@ class StrValidation(object):
         print('***** IPv4 *****')
         ip_str = '0.0.0.0'
         print(ip_str, StrValidation.validate_ipv4(ip_str))
+        print(ip_str, StrValidation.validate_ipv4_with_socket(ip_str))
         ip_str = '0.0.0.0:2'
         print(ip_str, StrValidation.validate_ipv4_port(ip_str))
         ip_str = '0.0.0.0/2'
@@ -95,6 +127,7 @@ class StrValidation(object):
         print('***** IPv6 *****')
         ipv6_star = 'aa::1'
         print(ipv6_star, StrValidation.validate_ipv6(ipv6_star))
+        print(ipv6_star, StrValidation.validate_ipv6_with_socket(ipv6_star))
         ipv6_star = 'aa:bb:cc:dd:ee:ff:1:2'
         print(ipv6_star, StrValidation.validate_ipv6(ipv6_star))
         ipv6_star = '2001:0db8:85a3:08d3:1319:8a2e:0370:7334'
