@@ -1,6 +1,10 @@
 import json
 import requests
 
+# Disable security request warning
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
 """ Order 2: Login system by https
 
 This is the code which use curl to login system
