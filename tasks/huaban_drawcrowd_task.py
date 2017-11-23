@@ -14,7 +14,8 @@ class HuabanDrawcrowdTask(object):
 
     # Must add sid in cookie.
     cookies = dict(
-        sid='B3aOonIXtRYDEPoV5uVfqfkyXbA.G7oIUoxfpshMgB4OVvCxEIKKVH5Nk3cImmPvxBaxqOA'
+        sid='IYkF8rK4Bf1o3aOTRLZ7qBOSy24.ZimOEDDZYTh9MX0wHL4%2BE4WuyYPwF1a5ilpI%2FAuJ8PI',
+        uid='20270811'
     )
 
     # Must add X-Request and X-Requested-with in headers. If not, will return html data not json data
@@ -31,12 +32,14 @@ class HuabanDrawcrowdTask(object):
         self.counter = 0
 
     def request_json_list(self, start_pin_id):
+        time.sleep(1)
         self.counter += 1
         print(f'request counter: {self.counter}')
-        time.sleep(0.3)
         request_url = f'{self.home_url}?max={str(start_pin_id)}&limit=20&wfl=1'
+        print(request_url)
         response = requests.get(request_url, headers=self.headers, cookies=self.cookies)
         result = response.text
+        print(result)
         self.analysis_json(json.loads(result))
 
     def analysis_json(self, json_result):
@@ -44,7 +47,7 @@ class HuabanDrawcrowdTask(object):
 
         for item in response_list:
             self.save_item(self.parse_item(item))
-            # print(item)
+            print(item)
 
         if len(response_list) > 0:
             last_item = response_list[len(response_list) - 1]
@@ -94,4 +97,4 @@ huaban = HuabanDrawcrowdTask()
 huaban.start()
 # huaban.find(1000)
 # huaban.start()
-huaban.find(50)
+# huaban.find(50)
