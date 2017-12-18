@@ -104,6 +104,34 @@ class StrValidation(object):
         return False
 
     @staticmethod
+    def validate_hostname(hostname_str):
+        """
+
+        :param hostname_str: Give hostname str
+        :return: Boolean
+        """
+        ipv4_re = re.compile(r'^(?:(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.){3}(?:\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\Z')
+        hostname_re = re.compile(r'[\d\w\.\-\_]+\Z')
+        if hostname_re.match(hostname_str) is None:
+            return False
+
+        if ipv4_re.match(hostname_str) is not None:
+            return True
+
+        hostname_split = hostname_str.split('.')
+        if len(hostname_split) <= 4:
+            flag_count = 0
+            for split_str in hostname_split:
+                try:
+                    if not split_str or int(split_str) <= 255:
+                        flag_count = flag_count + 1
+                except ValueError:
+                    pass
+            if flag_count == len(hostname_split):
+                return False
+        return True
+
+    @staticmethod
     def test():
         print('***** Email *****')
         email_str = 'a@2.co'
@@ -140,5 +168,22 @@ class StrValidation(object):
         ipv6_star = '2001:0db8:85a3:08d3:1319:8a2e:0370:7334/129'
         print(ipv6_star, StrValidation.validate_ipv6_netmask(ipv6_star))
 
+    @staticmethod
+    def test_validate_hostname():
+        hostname = '222aDFaas'
+        print(StrValidation.validate_hostname(hostname_str=hostname), hostname)
+        hostname = '222.'
+        print(StrValidation.validate_hostname(hostname_str=hostname), hostname)
+        hostname = '222.2'
+        print(StrValidation.validate_hostname(hostname_str=hostname), hostname)
+        hostname = '222.2.'
+        print(StrValidation.validate_hostname(hostname_str=hostname), hostname)
+        hostname = '222.2.2'
+        print(StrValidation.validate_hostname(hostname_str=hostname), hostname)
+        hostname = '222.2.2.'
+        print(StrValidation.validate_hostname(hostname_str=hostname), hostname)
+        hostname = '222.2.2.2'
+        print(StrValidation.validate_hostname(hostname_str=hostname), hostname)
 
-# StrValidation.test()
+
+StrValidation.test_validate_hostname()

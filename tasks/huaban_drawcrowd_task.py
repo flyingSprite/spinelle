@@ -32,9 +32,10 @@ class HuabanDrawcrowdTask(object):
 
     def request_json_list(self, start_pin_id):
         self.counter += 1
-        print(f'request counter: {self.counter}')
+        # print(f'request counter: {self.counter}')
         time.sleep(0.3)
         request_url = f'{self.home_url}?max={str(start_pin_id)}&limit=20&wfl=1'
+        print(f'request counter: {self.counter} - {request_url}')
         response = requests.get(request_url, headers=self.headers, cookies=self.cookies)
         result = response.text
         self.analysis_json(json.loads(result))
@@ -56,6 +57,7 @@ class HuabanDrawcrowdTask(object):
     def parse_item(item):
         if item:
             parse_item = dict()
+            parse_item['pin_id'] = item['pin_id']
             if 'file' in item:
                 item_file = item['file']
                 if 'key' in item_file:
@@ -94,4 +96,4 @@ huaban = HuabanDrawcrowdTask()
 huaban.start()
 # huaban.find(1000)
 # huaban.start()
-huaban.find(50)
+# huaban.find(50)

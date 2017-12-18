@@ -14,7 +14,7 @@ class MongoService(object):
     def __init__(self):
         url = f'mongodb://{config.USERNAME}:{config.PASSWORD}@{config.HOST}/{config.DATABASE}'
         client = MongoClient(url, config.PORT)
-        self.db = client.solution
+        self.db = client.podou
 
     def collection(self, collection_name):
         """Get Mongodb collection by collection Name
