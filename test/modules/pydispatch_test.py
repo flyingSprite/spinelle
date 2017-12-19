@@ -14,6 +14,7 @@ def func():
     """
     print('Hello World!')
 
+
 dispatcher.connect(func, signal='start', sender=dispatcher.Anonymous)
 dispatcher.send(signal='start')
 
@@ -25,6 +26,7 @@ def func2(test):
     :return: None
     """
     print('Hello World!', test)
+
 
 dispatcher.connect(func2, signal='second', sender=dispatcher.Anonymous)
 dispatcher.send(signal='second', test='My test!')
